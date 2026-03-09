@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { STATS, SUMMARY_TEXT } from './SummaryConstant';
 
 const Summary = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -10,7 +11,7 @@ const Summary = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -25,7 +26,6 @@ const Summary = () => {
       className="py-16 transition-colors bg-white border-b border-rose-100 dark:border-stone-800 dark:bg-stone-950"
     >
       <div className="max-w-4xl px-6 mx-auto">
-       
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{
@@ -44,7 +44,6 @@ const Summary = () => {
           </h2>
         </motion.div>
 
-       
         <motion.div
           className="grid grid-cols-3 gap-4 mb-10"
           variants={containerVariants}
