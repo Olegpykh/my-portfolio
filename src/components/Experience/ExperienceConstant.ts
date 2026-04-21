@@ -4,7 +4,7 @@
       role: 'Frontend Developer (React)',
       company: 'Fusion Tech (Outstaffing)',
       location: 'Berlin · Remote',
-      period: 'seit Juli 2025',
+      period: 'seit März 2025',
 
       bullets: [
         'Entwicklung eines modularen API-Service-Layers für die Integration mit einem Headless-CMS (Strapi/Contentful) in einem SaaS-Projekt (EdTech/FinTech-Bereich).',
@@ -27,7 +27,7 @@
       role: 'Junior Frontend Developer',
       company: 'DEFA',
       location: 'Moscow',
-      period: '2014 – 2016',
+      period: '2013 – 2016',
       bullets: [
         'Entwicklung von UI-Komponenten mit HTML5, CSS3 und jQuery für Enterprise-Kunden.',
         'Research und Anwendung von CSS-Fixes für Cross-Browser-Kompatibilität (IE8/9 Support).',
