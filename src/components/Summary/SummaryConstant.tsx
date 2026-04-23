@@ -1,5 +1,5 @@
 export const STATS = [
-  { value: '3+', label: 'Years of experience' },
+  { value: '4+', label: 'Years of experience' },
   { value: '20+', label: 'Projects delivered' },
   { value: 'C1/C2', label: 'German level' },
 ] as const;
