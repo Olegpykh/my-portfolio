@@ -5,7 +5,7 @@ export const STATS = [
 ] as const;
 
 export const SUMMARY_TEXT = `
-  React developer with 3+ years of experience in frontend development,
+  React developer with 4+ years of experience in frontend development,
   focused on TypeScript, Redux Toolkit, and scalable architecture.
   I build production-ready applications with modern CI/CD workflows
   (Vercel / GitHub Actions) and bring clear structure, fast onboarding,
