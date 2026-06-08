@@ -25,7 +25,7 @@ export const SOCIAL = [
   },
   {
     label: 'CV',
-    href: '/Oleg_Pykhonin_CV_EN.pdf',
+    href: '/Oleg_Pykhonin_CV_DE.pdf',
     icon: <FileText size={20} />,
   },
 ] as const;
