@@ -4,7 +4,7 @@ const EXPERIENCE = [
     role: 'Frontend Developer (React)',
     company: 'Fusion Tech (Outstaffing)',
     location: 'Berlin · Remote',
-    period: 'März 2023 – Present',
+    period: 'März 2023 – heute',
     bullets: [
       'Entwicklung und Pflege von React/TypeScript-UI-Komponenten für Kundenprojekte — pixelgenaue Umsetzung von Figma-Designs in responsive, mobile-first Interfaces mit Tailwind CSS.',
       'Integration von REST-APIs mit Axios: Loading States, Error Handling und TypeScript-Interfaces für alle API-Responses — stabile UI auch bei unerwarteten Datenformaten.',
@@ -28,7 +28,7 @@ const EXPERIENCE = [
     id: 1,
     role: 'Junior Frontend Developer',
     company: 'DEFA',
-    location: 'Moscow',
+    location: 'Moskau',
     period: '2014 – 2016',
     bullets: [
       'Entwicklung von UI-Komponenten mit HTML5, CSS3 und jQuery für Enterprise-Kunden.',
@@ -39,8 +39,8 @@ const EXPERIENCE = [
   },
   {
     id: 2,
-    role: 'Actor',
-    company: 'Self-employed',
+    role: 'Schauspieler',
+    company: 'Selbstständig',
     location: 'Berlin',
     period: '2016 – 2023',
     bullets: [
