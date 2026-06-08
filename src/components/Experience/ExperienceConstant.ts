@@ -37,18 +37,7 @@ const EXPERIENCE = [
     ],
     tech: ['JavaScript', 'jQuery', 'HTML5/CSS3', 'Git'],
   },
-  {
-    id: 2,
-    role: 'Schauspieler',
-    company: 'Selbstständig',
-    location: 'Berlin',
-    period: '2016 – 2023',
-    bullets: [
-      'Durchführung von Schauspiel-Workshops für Kinder.',
-      'Mitwirkung in großen TV- und Streaming-Produktionen.',
-    ],
-    tech: [],
-  },
+  
 ];
 
 export default EXPERIENCE;
