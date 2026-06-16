@@ -20,7 +20,7 @@ export const SOCIAL = [
   },
   {
     label: 'Email',
-    href: 'mailto:oleg.pykhonin@gmail.com',
+    href: 'mailto:opykhonin@gmail.com',
     icon: <Mail size={20} />,
   },
   {
