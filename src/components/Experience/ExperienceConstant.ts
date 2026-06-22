@@ -29,7 +29,7 @@ const EXPERIENCE = [
     role: 'Junior Frontend Developer',
     company: 'DEFA',
     location: 'Moskau',
-    period: '2014 – 2016',
+    period: '2013 – 2016',
     bullets: [
       'Entwicklung von UI-Komponenten mit HTML5, CSS3 und jQuery für Enterprise-Kunden.',
       'Research und Anwendung von CSS-Fixes für Cross-Browser-Kompatibilität (IE8/9 Support).',
