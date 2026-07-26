@@ -1,6 +1,35 @@
 import { m } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import { PROJECTS } from './ProjectConstant';
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 50, scale: 0.94, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const imageVariants: Variants = {
+  hidden: { scale: 1.15, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 const Projects = () => {
   return (
@@ -8,7 +37,7 @@ const Projects = () => {
       id="projects"
       className="py-16 overflow-hidden transition-colors bg-rose-50 dark:bg-stone-900 md:py-24"
     >
-      <div className="max-w-4xl px-6 mx-auto">
+      <div className="max-w-5xl px-6 mx-auto">
         <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,22 +52,28 @@ const Projects = () => {
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          {PROJECTS.map((project, index) => (
+        <m.div
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: '-50px' }}
+        >
+          {PROJECTS.map((project) => (
             <m.div
               key={project.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="flex flex-col overflow-hidden transition-shadow duration-300 bg-white border group dark:bg-stone-900 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
+              variants={cardVariants}
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="flex flex-col overflow-hidden transition-shadow duration-300 bg-white border group dark:bg-stone-900 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-lg hover:shadow-stone-200/60 dark:hover:shadow-none"
             >
               <div className="relative w-full aspect-[16/9] overflow-hidden bg-stone-100 dark:bg-stone-800">
-                <img
+                <m.img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
                   decoding="async"
+                  variants={imageVariants}
                   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -86,7 +121,7 @@ const Projects = () => {
               </div>
             </m.div>
           ))}
-        </div>
+        </m.div>
       </div>
     </section>
   );
