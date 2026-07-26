@@ -1,3 +1,5 @@
+import type { Variants } from 'framer-motion';
+
 const EXPERIENCE = [
   {
     id: 0,
@@ -6,43 +8,43 @@ const EXPERIENCE = [
     location: 'Berlin · Remote',
     period: 'März 2023 – heute',
     bullets: [
-      'Entwicklung und Pflege von React/TypeScript-UI-Komponenten für Kundenprojekte — pixelgenaue Umsetzung von Figma-Designs in responsive, mobile-first Interfaces mit Tailwind CSS.',
-      'Integration von REST-APIs mit Axios: Loading States, Error Handling und TypeScript-Interfaces für alle API-Responses — stabile UI auch bei unerwarteten Datenformaten.',
-      'State Management mit Redux Toolkit und createAsyncThunk — Remote-Daten im globalen Store gecacht, redundante API-Aufrufe bei wiederholter Navigation vermieden.',
-      'Clientseitige Filterung und Suche mit URL-Parameter-Synchronisation implementiert — Nutzer können vorgefilterte Ansichten per Link teilen.',
-      'Git Feature-Branch-Workflow: feature branches → Pull Requests → Code Review → Merge in develop. Agile/Scrum-Sprints mit Jira und täglichen Standups.',
+      'Implementierte ein 8-stufiges Finder Tool mit localStorage-Persistenz und dynamischer Schritt-Logik in React und TypeScript.',
+      'Entwickelte typisierte Axios-Services für die CMS-Anbindung mit Fehlerbehandlung, Retry-Logik und Fallback-Daten.',
+      'Setzte responsive Layouts für 10+ strukturell unterschiedliche Seitentypen um — von komplexen Vergleichstabellen bis hin zu Multi-Step Wizards und Blog-Artikeln.',
+      'Reduzierte Frontend-Bugs durch strikte TypeScript-Typisierung und aktive Beteiligung an Code-Reviews im agilen Team.',
+      'Entwickelte filterbare und paginierte Produktlisten für 35+ Software-Kategorien mit dynamischer Datenanzeige.',
     ],
     tech: [
       'React 18',
+      'Next.js 16',
       'TypeScript',
       'Redux Toolkit',
-      'Tailwind CSS',
+      'Tailwind CSS v4',
+      'GraphQL',
       'Axios',
       'Git',
-      'Figma',
-      'Jira',
-      'Vercel',
     ],
   },
+
   {
-    id: 1,
-    role: 'Junior Frontend Developer',
+    id: 2,
+    role: 'Frontend Developer',
     company: 'DEFA',
     location: 'Moskau',
-    period: '2013 – 2016',
+    period: 'März 2013 – Juli 2016',
     bullets: [
-      'Entwicklung von UI-Komponenten mit HTML5, CSS3 und jQuery für Enterprise-Kunden.',
-      'Research und Anwendung von CSS-Fixes für Cross-Browser-Kompatibilität (IE8/9 Support).',
+      'Entwicklung von UI-Komponenten und Landing Pages für 10+ Enterprise-Kunden mit HTML5, CSS3 und jQuery.',
+      'Umsetzung responsiver, cross-browser-kompatibler Layouts (IE8/9, Chrome, Firefox) mit Mobile-First-Ansatz.',
+      'Performance-Optimierung durch CSS-Minifizierung und JS-Bereinigung — Seitengröße um 20–25% reduziert.',
       'Eigenverantwortliche Umsetzung von Landing-Page-Features innerhalb von Sprint-Zyklen.',
     ],
     tech: ['JavaScript', 'jQuery', 'HTML5/CSS3', 'Git'],
   },
-  
 ];
 
 export default EXPERIENCE;
 
-export const containerVariants = {
+export const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -50,7 +52,7 @@ export const containerVariants = {
   },
 };
 
-export const itemVariants = {
+export const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,

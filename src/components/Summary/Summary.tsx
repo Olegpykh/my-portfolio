@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { STATS, SUMMARY_TEXT } from './SummaryConstant';
 
@@ -26,7 +26,7 @@ const Summary = () => {
       className="py-16 transition-colors bg-white border-b border-rose-100 dark:border-stone-800 dark:bg-stone-950"
     >
       <div className="max-w-4xl px-6 mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{
             opacity: 1,
@@ -36,15 +36,15 @@ const Summary = () => {
           viewport={{ amount: 0.4 }}
           className="mb-10"
         >
-          <p className="mb-2 text-xs font-semibold tracking-widest uppercase text-rose-400 dark:text-rose-500">
+          <p className="mb-2 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
             Who I am
           </p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-stone-800 dark:text-stone-100">
+          <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-5xl">
             Summary
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="grid grid-cols-3 gap-4 mb-10"
           variants={containerVariants}
           initial="hidden"
@@ -52,23 +52,23 @@ const Summary = () => {
           viewport={{ amount: 0.3 }}
         >
           {STATS.map(({ value, label }) => (
-            <motion.div
+            <m.div
               key={label}
               variants={itemVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
               className="p-5 text-center transition-colors border shadow-sm bg-rose-50 dark:bg-stone-900 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
             >
-              <div className="text-3xl font-bold text-rose-500 dark:text-rose-400">
+              <div className="text-3xl font-medium text-rose-500 dark:text-rose-400">
                 {value}
               </div>
               <div className="mt-1 text-xs leading-snug text-stone-400 dark:text-stone-500">
                 {label}
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{
             opacity: 1,
@@ -79,7 +79,7 @@ const Summary = () => {
           className="max-w-2xl text-base leading-relaxed md:text-lg text-stone-500 dark:text-stone-400"
         >
           {SUMMARY_TEXT}
-        </motion.p>
+        </m.p>
       </div>
     </section>
   );
