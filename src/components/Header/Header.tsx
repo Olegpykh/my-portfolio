@@ -42,14 +42,14 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-rose-50 border-b border-rose-100 transition-shadow duration-300 ${
-        scrolled ? 'shadow-md shadow-rose-200' : ''
+      className={`sticky top-0 z-50 bg-rose-50/95 dark:bg-stone-950/95 backdrop-blur-sm border-b border-rose-100/70 dark:border-stone-800 transition-shadow duration-300 ${
+        scrolled ? 'shadow-sm' : ''
       }`}
     >
       <div className="flex items-center justify-between h-16 max-w-6xl gap-6 px-6 mx-auto">
         <button
           onClick={() => scrollTo(NAV_ITEMS[0].id)}
-          className="text-base font-semibold transition-colors text-stone-800 hover:text-rose-500 whitespace-nowrap"
+          className="text-sm font-medium tracking-[0.15em] uppercase transition-colors text-stone-900 dark:text-stone-100 hover:text-rose-500 dark:hover:text-rose-400 whitespace-nowrap"
         >
           Oleg Pykhonin
         </button>
@@ -59,39 +59,39 @@ const Header = () => {
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className={`relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${
+              className={`relative px-3 py-1.5 text-xs font-medium uppercase tracking-[0.15em] transition-colors ${
                 activeId === id
-                  ? 'text-rose-400'
-                  : 'text-stone-500 hover:text-stone-800'
+                  ? 'text-rose-500 dark:text-rose-400'
+                  : 'text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
               }`}
             >
               {label}
 
               {activeId === id && (
-                <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-rose-400 rounded-full" />
+                <span className="absolute bottom-0 h-px left-3 right-3 bg-rose-400 dark:bg-rose-400/80" />
               )}
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <a
             href={SOCIAL_LINKS.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="transition-colors text-stone-400 hover:text-stone-800"
+            className="transition-colors text-stone-400 dark:text-stone-500 hover:text-rose-500 dark:hover:text-rose-400"
           >
-            <Github size={20} />
+            <Github size={18} />
           </a>
           <a
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="transition-colors text-stone-400 hover:text-rose-500"
+            className="transition-colors text-stone-400 dark:text-stone-500 hover:text-rose-500 dark:hover:text-rose-400"
           >
-            <Linkedin size={20} />
+            <Linkedin size={18} />
           </a>
         </div>
       </div>

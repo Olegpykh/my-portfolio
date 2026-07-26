@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { SKILL_CATEGORIES } from '../../constants/constants';
 import { cardVariants, skillVariants } from './SkillsVariants';
 
@@ -17,7 +17,7 @@ const Skills = () => {
       className="py-16 transition-colors bg-white border-b border-rose-100 dark:border-stone-800 dark:bg-stone-950"
     >
       <div className="max-w-4xl px-6 mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{
             opacity: 1,
@@ -27,15 +27,15 @@ const Skills = () => {
           viewport={{ amount: 0.4 }}
           className="mb-10"
         >
-          <p className="mb-2 text-xs font-semibold tracking-widest uppercase text-rose-400 dark:text-rose-500">
+          <p className="mb-2 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
             What I work with
           </p>
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-stone-800 dark:text-stone-100">
+          <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-5xl">
             Skills
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="grid grid-cols-1 gap-5 md:grid-cols-2"
           variants={containerVariants}
           initial="hidden"
@@ -43,36 +43,36 @@ const Skills = () => {
           viewport={{ amount: 0.3 }}
         >
           {SKILL_CATEGORIES.map(({ title, icon, skills }) => (
-            <motion.div
+            <m.div
               key={title}
               variants={cardVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
               className="p-6 transition-colors bg-white border shadow-sm dark:bg-stone-950 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">{icon}</span>
-                <h3 className="text-sm font-semibold tracking-wide text-stone-700 dark:text-stone-300">
+                <h3 className="text-sm font-medium tracking-wide text-stone-700 dark:text-stone-300">
                   {title}
                 </h3>
               </div>
 
-              <motion.div
+              <m.div
                 className="flex flex-wrap gap-2"
                 variants={containerVariants}
               >
                 {skills.map((skill) => (
-                  <motion.span
+                  <m.span
                     key={skill}
                     variants={skillVariants}
-                    className="px-3 py-1 text-xs font-medium border rounded-full bg-rose-50 dark:bg-stone-800 text-rose-600 dark:text-rose-400 border-rose-100 dark:border-stone-700"
+                    className="px-3 py-1 text-xs font-medium border rounded-full bg-stone-50 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border-stone-200 dark:border-stone-700"
                   >
                     {skill}
-                  </motion.span>
+                  </m.span>
                 ))}
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
