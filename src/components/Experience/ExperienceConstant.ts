@@ -6,7 +6,7 @@ const EXPERIENCE = [
     role: 'Frontend Developer (React)',
     company: 'Fusion Tech (Outstaffing)',
     location: 'Berlin · Remote',
-    period: 'März 2023 – heute',
+    period: 'März 2023 – Juni 2026',
     bullets: [
       'Implementierte ein 8-stufiges Finder Tool mit localStorage-Persistenz und dynamischer Schritt-Logik in React und TypeScript.',
       'Entwickelte typisierte Axios-Services für die CMS-Anbindung mit Fehlerbehandlung, Retry-Logik und Fallback-Daten.',
