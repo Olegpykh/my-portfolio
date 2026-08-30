@@ -53,7 +53,7 @@ const Projects = () => {
         </m.div>
 
         <m.div
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -108,6 +108,7 @@ const Projects = () => {
                     <ExternalLink size={14} />
                     Demo
                   </a>
+
                   <a
                     href={project.github}
                     target="_blank"
