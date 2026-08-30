@@ -1,15 +1,15 @@
 type NavItem = {
   id: string;
-  label: string;
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { id: 'about', label: 'About' },
-  { id: 'summary', label: 'Summary' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'about' },
+  { id: 'summary' },
+  { id: 'experience' },
+  { id: 'skills' },
+  { id: 'projects' },
+  { id: 'languages' },
+  { id: 'contact' },
 ];
 
 export const SOCIAL_LINKS = {

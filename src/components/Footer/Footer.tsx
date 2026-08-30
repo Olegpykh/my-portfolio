@@ -1,9 +1,12 @@
 import { Heart } from 'lucide-react';
-import {SOCIAL} from '../../components/About/AboutConstant';
+import { useTranslation } from 'react-i18next';
+import { SOCIAL } from '../../components/About/AboutConstant';
 
 const YEAR = new Date().getFullYear();
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -13,12 +16,12 @@ const Footer = () => {
       <div className="max-w-4xl px-6 py-8 mx-auto">
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <p className="flex items-center gap-1.5 text-sm text-stone-400 dark:text-stone-500 text-center sm:text-left">
-            © {YEAR} Oleg Pykhonin · Built with
+            © {YEAR} Oleg Pykhonin · {t('footer.builtWith')}
             <Heart
               size={13}
               className="text-rose-400 fill-rose-400 animate-pulse"
             />
-            React & Tailwind
+            {t('footer.andTailwind')}
           </p>
 
           <div className="flex items-center gap-4">
@@ -41,7 +44,7 @@ const Footer = () => {
 
             <button
               onClick={scrollToTop}
-              aria-label="Scroll to top"
+              aria-label={t('footer.scrollToTop')}
               className="flex items-center justify-center text-xs font-bold transition-transform rounded-full w-9 h-9 bg-rose-100 dark:bg-stone-800 text-rose-500 dark:text-rose-400 hover:bg-rose-200 dark:hover:bg-stone-700 active:scale-90"
             >
               ↑

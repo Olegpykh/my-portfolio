@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "about": "Über mich",
+    "summary": "Überblick",
+    "experience": "Erfahrung",
+    "skills": "Kenntnisse",
+    "languages": "Sprachen",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "about": {
+    "eyebrow": "Offen für neue Herausforderungen",
+    "jobTitle": "Frontend-Entwickler",
+    "contactMe": "Kontakt aufnehmen",
+    "cv": "Lebenslauf"
+  },
+  "summary": {
+    "eyebrow": "Wer ich bin",
+    "heading": "Überblick",
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "projects": "Abgeschlossene Projekte",
+      "germanLevel": "Deutschniveau"
+    },
+    "text": "Über 5 Jahren Erfahrung. Spezialisiert auf React, Next.js und TypeScript. Entwicklung skalierbarer Webanwendungen für internationale Kunden mit tausenden aktiven Nutzern."
+  },
+  "skills": {
+    "eyebrow": "Womit ich arbeite",
+    "heading": "Kenntnisse",
+    "categories": {
+      "languages": "Sprachen & Markup",
+      "frameworks": "Frameworks & Build-Tools",
+      "state": "State & Formulare",
+      "styling": "Styling & UI",
+      "apiTools": "APIs & Backend",
+      "testingTools": "Testing & Tools"
+    }
+  },
+  "experience": {
+    "eyebrow": "Werdegang",
+    "heading": "Berufserfahrung",
+    "jobs": [
+      {
+        "role": "Frontend-Entwickler (React)",
+        "company": "Fusion Tech (Outstaffing)",
+        "location": "Berlin · Remote",
+        "period": "März 2023 – Juni 2026",
+        "bullets": [
+          "Implementierte ein 8-stufiges Finder Tool mit localStorage-Persistenz und dynamischer Schritt-Logik in React und TypeScript.",
+          "Entwickelte typisierte Axios-Services für die CMS-Anbindung mit Fehlerbehandlung, Retry-Logik und Fallback-Daten.",
+          "Setzte responsive Layouts für 10+ strukturell unterschiedliche Seitentypen um — von komplexen Vergleichstabellen bis hin zu Multi-Step Wizards und Blog-Artikeln.",
+          "Reduzierte Frontend-Bugs durch strikte TypeScript-Typisierung und aktive Beteiligung an Code-Reviews im agilen Team.",
+          "Entwickelte filterbare und paginierte Produktlisten für 35+ Software-Kategorien mit dynamischer Datenanzeige."
+        ]
+      },
+      {
+        "role": "Frontend-Entwickler",
+        "company": "DEFA",
+        "location": "Moskau",
+        "period": "März 2013 – Juli 2016",
+        "bullets": [
+          "Entwicklung von UI-Komponenten und Landing Pages für 10+ Enterprise-Kunden mit HTML5, CSS3 und jQuery.",
+          "Umsetzung responsiver, cross-browser-kompatibler Layouts (IE8/9, Chrome, Firefox) mit Mobile-First-Ansatz.",
+          "Performance-Optimierung durch CSS-Minifizierung und JS-Bereinigung — Seitengröße um 20–25% reduziert.",
+          "Eigenverantwortliche Umsetzung von Landing-Page-Features innerhalb von Sprint-Zyklen."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Was ich gebaut habe",
+    "heading": "Projekte",
+    "demo": "Demo",
+    "code": "Code",
+    "list": [
+      {
+        "title": "Sports Apparel Store",
+        "description": "Headless E-Commerce-Storefront auf Basis der Shopify Storefront GraphQL API, mit serverseitig gerenderten Produktseiten und vollständigem Warenkorb-Flow — Shopify verwaltet die Commerce-Daten, Next.js übernimmt die komplette UI-Schicht."
+      },
+      {
+        "title": "MovieTrailer",
+        "description": "Film- und Serien-Explorer mit Suche, einheitlichen Detailseiten für Filme und Serien, Trailer-Wiedergabe, Streaming-Anbieter-Infos und einer persönlichen Merkliste — Authentifizierung über Clerk."
+      },
+      {
+        "title": "Lingo CRM",
+        "description": "CRM-Dashboard für freiberufliche Englischlehrer:innen — Schülerliste mit Suche und Filterung nach CEFR-Niveau, ein Drag-&-Drop-Wochenplan (dnd-kit) und individuelle Schülerseiten mit Fortschritt, Anwesenheit und Zahlungsstatus. Lokalisiert auf Deutsch und Englisch."
+      },
+      {
+        "title": "Italian Kitchen",
+        "description": "Plattform zur Rezeptverwaltung mit persönlichen Rezeptbüchern und gespeicherten Sammlungen (mit Login), gebaut mit Server Actions und Zustand für den Client-State."
+      }
+    ]
+  },
+  "languages": {
+    "eyebrow": "Kommunikation",
+    "heading": "Sprachen",
+    "items": [
+      { "name": "Deutsch", "level": "C1 / C2" },
+      { "name": "Englisch", "level": "B2" },
+      { "name": "Russisch", "level": "Muttersprache" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "heading": "Lass uns sprechen",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "cta": "Gespräch starten",
+    "items": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "location": "Standort",
+      "locationValue": "Berlin, Deutschland · Remote-freundlich",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "footer": {
+    "builtWith": "Erstellt mit",
+    "andTailwind": "React & Tailwind",
+    "scrollToTop": "Nach oben scrollen"
+  }
+}

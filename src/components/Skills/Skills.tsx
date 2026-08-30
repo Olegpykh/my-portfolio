@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SKILL_CATEGORIES } from '../../constants/constants';
 import { cardVariants, skillVariants } from './SkillsVariants';
 
@@ -11,6 +12,8 @@ const containerVariants = {
 };
 
 const Skills = () => {
+  const { t } = useTranslation();
+
   return (
     <section
       id="skills"
@@ -28,36 +31,36 @@ const Skills = () => {
           className="mb-10"
         >
           <p className="mb-2 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
-            What I work with
+            {t('skills.eyebrow')}
           </p>
           <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-5xl">
-            Skills
+            {t('skills.heading')}
           </h2>
         </m.div>
 
         <m.div
-          className="grid grid-cols-1 gap-5 md:grid-cols-2"
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ amount: 0.3 }}
         >
-          {SKILL_CATEGORIES.map(({ title, icon, skills }) => (
+          {SKILL_CATEGORIES.map(({ titleKey, icon, skills }) => (
             <m.div
-              key={title}
+              key={titleKey}
               variants={cardVariants}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="p-6 transition-colors bg-white border shadow-sm dark:bg-stone-950 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
+              className="flex flex-col h-full p-6 transition-colors bg-white border shadow-sm dark:bg-stone-950 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
             >
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">{icon}</span>
                 <h3 className="text-sm font-medium tracking-wide text-stone-700 dark:text-stone-300">
-                  {title}
+                  {t(titleKey)}
                 </h3>
               </div>
 
               <m.div
-                className="flex flex-wrap gap-2"
+                className="flex flex-wrap content-start flex-1 gap-2"
                 variants={containerVariants}
               >
                 {skills.map((skill) => (

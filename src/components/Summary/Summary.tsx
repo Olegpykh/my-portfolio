@@ -1,8 +1,11 @@
 import { m } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { STATS, SUMMARY_TEXT } from './SummaryConstant';
+import { useTranslation } from 'react-i18next';
+import { STATS } from './SummaryConstant';
 
 const Summary = () => {
+  const { t } = useTranslation();
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,10 +40,10 @@ const Summary = () => {
           className="mb-10"
         >
           <p className="mb-2 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
-            Who I am
+            {t('summary.eyebrow')}
           </p>
           <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-5xl">
-            Summary
+            {t('summary.heading')}
           </h2>
         </m.div>
 
@@ -51,9 +54,9 @@ const Summary = () => {
           whileInView="visible"
           viewport={{ amount: 0.3 }}
         >
-          {STATS.map(({ value, label }) => (
+          {STATS.map(({ value, labelKey }) => (
             <m.div
-              key={label}
+              key={labelKey}
               variants={itemVariants}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
               className="p-5 text-center transition-colors border shadow-sm bg-rose-50 dark:bg-stone-900 border-rose-100 dark:border-stone-800 rounded-2xl hover:shadow-md"
@@ -62,7 +65,7 @@ const Summary = () => {
                 {value}
               </div>
               <div className="mt-1 text-xs leading-snug text-stone-400 dark:text-stone-500">
-                {label}
+                {t(labelKey)}
               </div>
             </m.div>
           ))}
@@ -78,7 +81,7 @@ const Summary = () => {
           viewport={{ amount: 0.4 }}
           className="max-w-2xl text-base leading-relaxed md:text-lg text-stone-500 dark:text-stone-400"
         >
-          {SUMMARY_TEXT}
+          {t('summary.text')}
         </m.p>
       </div>
     </section>
