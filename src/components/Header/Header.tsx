@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { NAV_ITEMS, SOCIAL_LINKS } from './nav';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -35,6 +39,7 @@ const Header = () => {
   }, []);
 
   const scrollTo = (id: string) => {
+    setIsMenuOpen(false);
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -46,29 +51,29 @@ const Header = () => {
         scrolled ? 'shadow-sm' : ''
       }`}
     >
-      <div className="flex items-center justify-between h-16 max-w-6xl gap-6 px-6 mx-auto">
+      <div className="flex items-center justify-between max-w-6xl gap-6 px-6 mx-auto h-14">
         <button
           onClick={() => scrollTo(NAV_ITEMS[0].id)}
-          className="text-sm font-medium tracking-[0.15em] uppercase transition-colors text-stone-900 dark:text-stone-100 hover:text-rose-500 dark:hover:text-rose-400 whitespace-nowrap"
+          className="text-xs font-medium tracking-[0.12em] uppercase transition-colors text-stone-900 dark:text-stone-100 hover:text-rose-500 dark:hover:text-rose-400 whitespace-nowrap"
         >
           Oleg Pykhonin
         </button>
 
-        <nav className="items-center hidden gap-1 md:flex">
-          {NAV_ITEMS.map(({ id, label }) => (
+        <nav className="items-center hidden gap-0.5 md:flex">
+          {NAV_ITEMS.map(({ id }) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className={`relative px-3 py-1.5 text-xs font-medium uppercase tracking-[0.15em] transition-colors ${
+              className={`relative px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-center whitespace-nowrap transition-colors ${
                 activeId === id
                   ? 'text-rose-500 dark:text-rose-400'
                   : 'text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
               }`}
             >
-              {label}
+              {t(`nav.${id}`)}
 
               {activeId === id && (
-                <span className="absolute bottom-0 h-px left-3 right-3 bg-rose-400 dark:bg-rose-400/80" />
+                <span className="absolute bottom-0 h-px left-2.5 right-2.5 bg-rose-400 dark:bg-rose-400/80" />
               )}
             </button>
           ))}
@@ -93,8 +98,38 @@ const Header = () => {
           >
             <Linkedin size={18} />
           </a>
+
+          <div className="w-px h-4 bg-stone-200 dark:bg-stone-800" />
+
+          <LanguageSwitcher />
+
+          <button
+            onClick={() => setIsMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+            className="p-1 -mr-1 transition-colors md:hidden text-stone-500 dark:text-stone-400 hover:text-rose-500 dark:hover:text-rose-400"
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <nav className="flex flex-col px-6 py-4 border-t md:hidden bg-rose-50/95 dark:bg-stone-950/95 backdrop-blur-sm border-rose-100/70 dark:border-stone-800">
+          {NAV_ITEMS.map(({ id }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className={`px-2 py-2.5 text-left text-xs font-medium uppercase tracking-[0.1em] transition-colors ${
+                activeId === id
+                  ? 'text-rose-500 dark:text-rose-400'
+                  : 'text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200'
+              }`}
+            >
+              {t(`nav.${id}`)}
+            </button>
+          ))}
+        </nav>
+      )}
     </header>
   );
 };

@@ -1,13 +1,14 @@
 import { m } from 'framer-motion';
 import { Download, Mail } from 'lucide-react';
-import { SOCIAL } from './AboutConstant';
+import { useTranslation } from 'react-i18next';
+import { CV_FILES } from './AboutConstant';
 
 const About = () => {
+  const { t } = useTranslation();
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const cv = SOCIAL.find((item) => item.label === 'CV');
 
   return (
     <section
@@ -24,7 +25,7 @@ const About = () => {
             className="flex-1 text-center md:text-left"
           >
             <p className="mb-4 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
-              Open to work
+              {t('about.eyebrow')}
             </p>
 
             <h1 className="text-5xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-6xl">
@@ -32,7 +33,7 @@ const About = () => {
             </h1>
 
             <p className="mt-3 text-sm font-medium tracking-[0.15em] uppercase text-stone-400 dark:text-stone-500">
-              Frontend Developer
+              {t('about.jobTitle')}
             </p>
 
             <div className="w-10 h-px mx-auto mt-6 bg-rose-300 md:mx-0 dark:bg-rose-800" />
@@ -44,19 +45,29 @@ const About = () => {
                 className="inline-flex items-center gap-2 px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase text-white transition-colors duration-300 rounded-full bg-rose-500 hover:bg-rose-600 focus:outline-none focus:ring-1 focus:ring-rose-400 focus:ring-offset-2"
               >
                 <Mail size={14} />
-                Contact me
+                {t('about.contactMe')}
               </button>
 
-              {cv && (
+              <div className="inline-flex items-center gap-2 px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-300 border rounded-full border-stone-300 text-stone-600 dark:border-stone-700 dark:text-stone-400">
+                <Download size={14} />
+                <span>{t('about.cv')}</span>
+                <span className="w-px h-3 bg-stone-300 dark:bg-stone-700" />
                 <a
-                  href={cv.href}
+                  href={CV_FILES.en}
                   download
-                  className="inline-flex items-center gap-2 px-6 py-3 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-300 border rounded-full border-stone-300 text-stone-600 hover:border-rose-400 hover:text-rose-500 dark:border-stone-700 dark:text-stone-400 dark:hover:border-rose-800 dark:hover:text-rose-400"
+                  className="transition-colors hover:text-rose-500 dark:hover:text-rose-400"
                 >
-                  <Download size={14} />
-                  Download CV
+                  EN
                 </a>
-              )}
+                <span className="text-stone-300 dark:text-stone-600">/</span>
+                <a
+                  href={CV_FILES.de}
+                  download
+                  className="transition-colors hover:text-rose-500 dark:hover:text-rose-400"
+                >
+                  DE
+                </a>
+              </div>
             </div>
           </m.div>
 

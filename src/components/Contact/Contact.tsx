@@ -1,9 +1,11 @@
 import { m } from 'framer-motion';
 import { Mail, Copy, Check, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CONTACT_ITEMS } from '../../constants/constants';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   const copyEmail = (email: string) => {
@@ -26,71 +28,74 @@ const Contact = () => {
           className="mb-16"
         >
           <p className="mb-3 text-xs font-medium tracking-[0.25em] uppercase text-rose-600 dark:text-rose-400">
-            Contact
+            {t('contact.eyebrow')}
           </p>
           <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-white md:text-5xl">
-            Get in touch
+            {t('contact.heading')}
           </h2>
         </m.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {CONTACT_ITEMS.map(({ icon, label, value, href }, index) => {
-            const isEmail = label.toLowerCase() === 'email';
+          {CONTACT_ITEMS.map(
+            ({ icon, labelKey, value, valueKey, href, isEmail }, index) => {
+              const label = t(labelKey);
+              const displayValue = valueKey ? t(valueKey) : value ?? '';
 
-            return (
-              <m.div
-                key={label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="relative p-8 transition-colors border group bg-stone-50/50 dark:bg-stone-900/40 border-stone-100 dark:border-stone-800 rounded-2xl hover:border-rose-200 dark:hover:border-rose-900/30 hover:bg-white dark:hover:bg-stone-900"
-              >
-                <div className="flex items-center justify-between mb-10">
-                  <div className="flex items-center justify-center bg-white shadow-sm w-11 h-11 rounded-xl dark:bg-stone-800 text-rose-500">
-                    {icon}
+              return (
+                <m.div
+                  key={labelKey}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="relative p-8 transition-colors border group bg-stone-50/50 dark:bg-stone-900/40 border-stone-100 dark:border-stone-800 rounded-2xl hover:border-rose-200 dark:hover:border-rose-900/30 hover:bg-white dark:hover:bg-stone-900"
+                >
+                  <div className="flex items-center justify-between mb-10">
+                    <div className="flex items-center justify-center bg-white shadow-sm w-11 h-11 rounded-xl dark:bg-stone-800 text-rose-500">
+                      {icon}
+                    </div>
+
+                    {isEmail && (
+                      <button
+                        onClick={() => copyEmail(displayValue)}
+                        className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider transition-colors rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950"
+                      >
+                        {copied ? <Check size={12} /> : <Copy size={12} />}
+                        {copied ? t('contact.copied') : t('contact.copy')}
+                      </button>
+                    )}
+
+                    {!isEmail && href && (
+                      <ExternalLink
+                        size={14}
+                        className="transition-opacity opacity-0 group-hover:opacity-40 text-stone-500"
+                      />
+                    )}
                   </div>
 
-                  {isEmail && (
-                    <button
-                      onClick={() => copyEmail(value)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider transition-colors rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950"
-                    >
-                      {copied ? <Check size={12} /> : <Copy size={12} />}
-                      {copied ? 'Copied' : 'Copy'}
-                    </button>
-                  )}
-
-                  {!isEmail && href && (
-                    <ExternalLink
-                      size={14}
-                      className="transition-opacity opacity-0 group-hover:opacity-40 text-stone-500"
-                    />
-                  )}
-                </div>
-
-                <div>
-                  <p className="mb-1 text-[10px] font-medium tracking-[0.2em] uppercase text-stone-400 dark:text-stone-600">
-                    {label}
-                  </p>
-                  {href ? (
-                    <a
-                      href={href}
-                      target={href.startsWith('http') ? '_blank' : undefined}
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium break-all transition-colors text-stone-800 dark:text-stone-200 hover:text-rose-500 dark:hover:text-rose-400"
-                    >
-                      {value}
-                    </a>
-                  ) : (
-                    <p className="text-sm font-medium text-stone-800 dark:text-stone-200">
-                      {value}
+                  <div>
+                    <p className="mb-1 text-[10px] font-medium tracking-[0.2em] uppercase text-stone-400 dark:text-stone-600">
+                      {label}
                     </p>
-                  )}
-                </div>
-              </m.div>
-            );
-          })}
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium break-all transition-colors text-stone-800 dark:text-stone-200 hover:text-rose-500 dark:hover:text-rose-400"
+                      >
+                        {displayValue}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-stone-800 dark:text-stone-200">
+                        {displayValue}
+                      </p>
+                    )}
+                  </div>
+                </m.div>
+              );
+            }
+          )}
         </div>
 
         <m.div
@@ -104,7 +109,7 @@ const Contact = () => {
             className="inline-flex items-center gap-3 py-4 text-sm font-medium tracking-wide text-white transition-colors rounded-full px-9 bg-stone-900 dark:bg-rose-600 hover:bg-rose-500 dark:hover:bg-rose-500"
           >
             <Mail size={16} />
-            Start a conversation
+            {t('contact.cta')}
           </a>
         </m.div>
       </div>

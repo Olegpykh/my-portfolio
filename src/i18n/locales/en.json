@@ -1,0 +1,123 @@
+{
+  "nav": {
+    "about": "About",
+    "summary": "Summary",
+    "experience": "Experience",
+    "skills": "Skills",
+    "languages": "Languages",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "eyebrow": "Open to work",
+    "jobTitle": "Frontend Developer",
+    "contactMe": "Contact me",
+    "cv": "CV"
+  },
+  "summary": {
+    "eyebrow": "Who I am",
+    "heading": "Summary",
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Projects delivered",
+      "germanLevel": "German level"
+    },
+    "text": "Over 5 years of experience. Specialized in React, Next.js, and TypeScript. Building scalable web applications for international clients with thousands of active users."
+  },
+  "skills": {
+    "eyebrow": "What I work with",
+    "heading": "Skills",
+    "categories": {
+      "languages": "Languages & Markup",
+      "frameworks": "Frameworks & Build Tools",
+      "state": "State & Forms",
+      "styling": "Styling & UI",
+      "apiTools": "APIs & Backend",
+      "testingTools": "Testing & Tools"
+    }
+  },
+  "experience": {
+    "eyebrow": "Career",
+    "heading": "Work Experience",
+    "jobs": [
+      {
+        "role": "Frontend Developer (React)",
+        "company": "Fusion Tech (Outstaffing)",
+        "location": "Berlin · Remote",
+        "period": "March 2023 – June 2026",
+        "bullets": [
+          "Built an 8-step finder tool with localStorage persistence and dynamic step logic in React and TypeScript.",
+          "Developed typed Axios services for CMS integration with error handling, retry logic, and fallback data.",
+          "Implemented responsive layouts for 10+ structurally different page types — from complex comparison tables to multi-step wizards and blog articles.",
+          "Reduced frontend bugs through strict TypeScript typing and active participation in code reviews within an agile team.",
+          "Built filterable, paginated product listings for 35+ software categories with dynamic data display."
+        ]
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "DEFA",
+        "location": "Moscow",
+        "period": "March 2013 – July 2016",
+        "bullets": [
+          "Developed UI components and landing pages for 10+ enterprise clients using HTML5, CSS3, and jQuery.",
+          "Implemented responsive, cross-browser-compatible layouts (IE8/9, Chrome, Firefox) with a mobile-first approach.",
+          "Optimized performance through CSS minification and JS cleanup — reduced page size by 20–25%.",
+          "Independently delivered landing page features within sprint cycles."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "What I've built",
+    "heading": "Projects",
+    "demo": "Demo",
+    "code": "Code",
+    "list": [
+      {
+        "title": "Sports Apparel Store",
+        "description": "Headless e-commerce storefront powered by the Shopify Storefront GraphQL API, with server-rendered product pages and a full cart flow — Shopify owns the commerce data, Next.js owns the entire UI layer."
+      },
+      {
+        "title": "MovieTrailer",
+        "description": "Movie & TV explorer with search, universal detail pages for both movies and shows, trailer playback, streaming provider info, and a personal watchlist — authenticated via Clerk."
+      },
+      {
+        "title": "Lingo CRM",
+        "description": "CRM dashboard for freelance English tutors — student roster with search and CEFR-level filtering, a drag-and-drop weekly schedule (dnd-kit), and per-student pages tracking progress, attendance, and payment status. Localized in German and English."
+      },
+      {
+        "title": "Italian Kitchen",
+        "description": "Recipe management platform with authenticated personal recipe books and saved collections, built on Server Actions and Zustand for client state."
+      }
+    ]
+  },
+  "languages": {
+    "eyebrow": "Communication",
+    "heading": "Languages",
+    "items": [
+      { "name": "German", "level": "C1 / C2" },
+      { "name": "English", "level": "B2" },
+      { "name": "Russian", "level": "Native" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Get in touch",
+    "copy": "Copy",
+    "copied": "Copied",
+    "cta": "Start a conversation",
+    "items": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "locationValue": "Berlin, Germany · Remote friendly",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "footer": {
+    "builtWith": "Built with",
+    "andTailwind": "React & Tailwind",
+    "scrollToTop": "Scroll to top"
+  }
+}

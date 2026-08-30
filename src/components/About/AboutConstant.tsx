@@ -1,6 +1,6 @@
-
-import { Mail, Github, Linkedin, FileText } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import type { ReactNode } from 'react';
+
 type SOCIAL = {
   label: string;
   href: string;
@@ -23,10 +23,11 @@ export const SOCIAL = [
     href: 'mailto:opykhonin@gmail.com',
     icon: <Mail size={20} />,
   },
-  {
-    label: 'CV',
-    href: '/Oleg_Pykhonin_CV_DE.pdf',
-    icon: <FileText size={20} />,
-  },
 ] as const;
 
+// CV differs by language — picked at render time based on the active locale.
+// eslint-disable-next-line react-refresh/only-export-components
+export const CV_FILES: Record<string, string> = {
+  en: '/oleg_pykhonin_cv_en.pdf',
+  de: '/oleg_pykhonin_cv_de.pdf',
+};

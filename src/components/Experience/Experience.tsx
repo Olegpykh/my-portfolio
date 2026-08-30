@@ -1,9 +1,24 @@
 import { m } from 'framer-motion';
 import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
-import EXPERIENCE from './ExperienceConstant';
-import { containerVariants, itemVariants } from './ExperienceConstant';
+import { useTranslation } from 'react-i18next';
+import {
+  EXPERIENCE_META,
+  containerVariants,
+  itemVariants,
+} from './ExperienceConstant';
+
+type Job = {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  bullets: string[];
+};
 
 export default function Experience() {
+  const { t } = useTranslation();
+  const jobs = t('experience.jobs', { returnObjects: true }) as Job[];
+
   return (
     <section
       id="experience"
@@ -21,10 +36,10 @@ export default function Experience() {
           className="mb-16"
         >
           <p className="mb-2 text-xs font-medium tracking-[0.25em] uppercase text-rose-500 dark:text-rose-400">
-            Career
+            {t('experience.eyebrow')}
           </p>
           <h2 className="text-4xl font-medium tracking-tight text-stone-900 dark:text-stone-100 md:text-5xl">
-            Work Experience
+            {t('experience.heading')}
           </h2>
         </m.div>
 
@@ -43,73 +58,77 @@ export default function Experience() {
           />
 
           <div className="space-y-12">
-            {EXPERIENCE.map((job) => (
-              <m.div
-                key={job.id}
-                variants={itemVariants}
-                className="relative sm:pl-14"
-              >
-                <div className="absolute left-0 z-10 items-center justify-center hidden w-8 h-8 bg-white border rounded-full sm:flex top-1 border-rose-200 dark:bg-stone-800 dark:border-stone-700">
-                  <Briefcase
-                    size={14}
-                    className="text-rose-500 dark:text-rose-400"
-                  />
-                </div>
+            {jobs.map((job, index) => {
+              const meta = EXPERIENCE_META[index];
 
+              return (
                 <m.div
-                  whileHover={{ x: 4 }}
-                  className="p-8 transition-all bg-white border shadow-sm rounded-3xl border-rose-100 dark:bg-stone-800 dark:border-stone-700 hover:shadow-md"
+                  key={meta.id}
+                  variants={itemVariants}
+                  className="relative sm:pl-14"
                 >
-                  <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <h3 className="text-xl font-medium text-stone-900 dark:text-stone-100">
-                        {job.role}
-                      </h3>
-                      <div className="flex flex-wrap items-center gap-3 mt-1 text-sm font-medium text-rose-500 dark:text-rose-400">
-                        <span>{job.company}</span>
-                        <span className="flex items-center gap-1 font-normal text-stone-400 dark:text-stone-500">
-                          <MapPin size={14} />
-                          {job.location}
-                        </span>
-                      </div>
-                    </div>
-
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-stone-500 dark:text-stone-400 bg-stone-50 dark:bg-stone-900 border border-stone-100 dark:border-stone-700 rounded-full whitespace-nowrap self-start">
-                      <Calendar size={13} />
-                      {job.period}
-                    </span>
+                  <div className="absolute left-0 z-10 items-center justify-center hidden w-8 h-8 bg-white border rounded-full sm:flex top-1 border-rose-200 dark:bg-stone-800 dark:border-stone-700">
+                    <Briefcase
+                      size={14}
+                      className="text-rose-500 dark:text-rose-400"
+                    />
                   </div>
 
-                  <ul className="mb-8 space-y-4">
-                    {job.bullets.map((point, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3 text-[15px] leading-relaxed text-stone-600 dark:text-stone-400"
-                      >
-                        <ChevronRight
-                          size={16}
-                          className="mt-1 text-rose-300 shrink-0"
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <m.div
+                    whileHover={{ x: 4 }}
+                    className="p-8 transition-all bg-white border shadow-sm rounded-3xl border-rose-100 dark:bg-stone-800 dark:border-stone-700 hover:shadow-md"
+                  >
+                    <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-xl font-medium text-stone-900 dark:text-stone-100">
+                          {job.role}
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-3 mt-1 text-sm font-medium text-rose-500 dark:text-rose-400">
+                          <span>{job.company}</span>
+                          <span className="flex items-center gap-1 font-normal text-stone-400 dark:text-stone-500">
+                            <MapPin size={14} />
+                            {job.location}
+                          </span>
+                        </div>
+                      </div>
 
-                  {job.tech.length > 0 && (
-                    <div className="flex flex-wrap gap-2 pt-6 border-t border-stone-100 dark:border-stone-700/50">
-                      {job.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-stone-500 dark:text-stone-400 bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-700 rounded-lg"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                      <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-stone-500 dark:text-stone-400 bg-stone-50 dark:bg-stone-900 border border-stone-100 dark:border-stone-700 rounded-full whitespace-nowrap self-start">
+                        <Calendar size={13} />
+                        {job.period}
+                      </span>
                     </div>
-                  )}
+
+                    <ul className="mb-8 space-y-4">
+                      {job.bullets.map((point, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-[15px] leading-relaxed text-stone-600 dark:text-stone-400"
+                        >
+                          <ChevronRight
+                            size={16}
+                            className="mt-1 text-rose-300 shrink-0"
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {meta.tech.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-6 border-t border-stone-100 dark:border-stone-700/50">
+                        {meta.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-stone-500 dark:text-stone-400 bg-stone-50 dark:bg-stone-900/50 border border-stone-200 dark:border-stone-700 rounded-lg"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </m.div>
                 </m.div>
-              </m.div>
-            ))}
+              );
+            })}
           </div>
         </m.div>
       </div>
