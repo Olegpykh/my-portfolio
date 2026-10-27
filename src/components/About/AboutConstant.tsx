@@ -25,7 +25,7 @@ export const SOCIAL = [
   },
 ] as const;
 
-// CV differs by language — picked at render time based on the active locale.
+
 // eslint-disable-next-line react-refresh/only-export-components
 export const CV_FILES: Record<string, string> = {
   en: '/oleg_pykhonin_cv_en.pdf',
